@@ -14,10 +14,6 @@
     @apply py-5;
 }
 
-.header-menu a {
-    @apply py-5;
-}
-
 .theme-list {
     @apply list-none;
 }
@@ -34,4 +30,20 @@
 .theme-list .wp-block-post-excerpt,
 .theme-list .wp-block-post-date {
     @apply px-3;
+}
+
+.login-form {
+    @apply p-3 rounded-md;
+}
+
+.login-form .heading {
+    @apply w-full uppercase text-center text-xs mb-2 rounded-md;
+}
+
+.login-form .text-box {
+    @apply w-1/2 border border-gray-300 focus:outline-none focus:border-gray-500 px-3 py-2 shadow-sm rounded-md;
+}
+
+.login-form .button {
+    @apply w-full mt-2 py-2 rounded-md cursor-pointer;
 }

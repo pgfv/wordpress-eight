@@ -218,6 +218,14 @@ class FourEightTheme {
 			'panel'       => 'theme_settings_panel',
 		) );
 
+		// header menu font color
+		$wp_customizer->add_setting( 'header_menu_color_setting' );
+		$wp_customizer->add_control( new WP_Customize_Color_Control( $wp_customizer, 'header_menu_color_control', array(
+			'label'    => __( 'Font Color', $this->theme_name ),
+			'section'  => 'header_menu_settings_section',
+			'settings' => 'header_menu_color_setting',
+		) ) );
+
 		// header menu background color
 		$wp_customizer->add_setting( 'header_menu_background_setting' );
 		$wp_customizer->add_control( new WP_Customize_Color_Control( $wp_customizer, 'header_menu_background_control', array(
@@ -240,6 +248,69 @@ class FourEightTheme {
 //			'section'  => 'header_menu_settings_section',
 //			'settings' => 'header_menu_a_background_gradient_to_setting',
 //		) ) );
+
+		// login form section
+		$wp_customizer->add_section( 'login_form_settings_section', array(
+			'title'       => __( 'Login Form Settings', $this->theme_name ),
+			'description' => __( 'Login form customizer', $this->theme_name ),
+			'panel'       => 'theme_settings_panel',
+		) );
+
+		// login form background color
+		$wp_customizer->add_setting( 'login_form_background_setting' );
+		$wp_customizer->add_control( new WP_Customize_Color_Control( $wp_customizer, 'login_form_background_control', array(
+			'label'    => __( 'Background Color', $this->theme_name ),
+			'section'  => 'login_form_settings_section',
+			'settings' => 'login_form_background_setting',
+		) ) );
+
+		// login form background gradient to
+		$wp_customizer->add_setting( 'login_form_background_gradient_to_setting' );
+		$wp_customizer->add_control( new WP_Customize_Color_Control( $wp_customizer, 'login_form_background_gradient_to_control', array(
+			'label'    => __( 'Background Gradient To', $this->theme_name ),
+			'section'  => 'login_form_settings_section',
+			'settings' => 'login_form_background_gradient_to_setting',
+		) ) );
+
+		// login form heading color
+		$wp_customizer->add_setting( 'login_form_heading_color_setting' );
+		$wp_customizer->add_control( new WP_Customize_Color_Control( $wp_customizer, 'login_form_heading_color_control', array(
+			'label'    => __( 'Heading Color', $this->theme_name ),
+			'section'  => 'login_form_settings_section',
+			'settings' => 'login_form_heading_color_setting',
+		) ) );
+
+		// login form heading background color
+		$wp_customizer->add_setting( 'login_form_heading_background_setting' );
+		$wp_customizer->add_control( new WP_Customize_Color_Control( $wp_customizer, 'login_form_heading_background_control', array(
+			'label'    => __( 'Heading Background Color', $this->theme_name ),
+			'section'  => 'login_form_settings_section',
+			'settings' => 'login_form_heading_background_setting',
+		) ) );
+
+		// login form button color
+		$wp_customizer->add_setting( 'login_form_button_color_setting' );
+		$wp_customizer->add_control( new WP_Customize_Color_Control( $wp_customizer, 'login_form_button_color_control', array(
+			'label'    => __( 'Button Color', $this->theme_name ),
+			'section'  => 'login_form_settings_section',
+			'settings' => 'login_form_button_color_setting',
+		) ) );
+
+		// login form button background color
+		$wp_customizer->add_setting( 'login_form_button_background_setting' );
+		$wp_customizer->add_control( new WP_Customize_Color_Control( $wp_customizer, 'login_form_button_background_control', array(
+			'label'    => __( 'Button Background Color', $this->theme_name ),
+			'section'  => 'login_form_settings_section',
+			'settings' => 'login_form_button_background_setting',
+		) ) );
+
+		// login form button background gradient to
+		$wp_customizer->add_setting( 'login_form_button_background_gradient_to_setting' );
+		$wp_customizer->add_control( new WP_Customize_Color_Control( $wp_customizer, 'login_form_button_background_gradient_to_control', array(
+			'label'    => __( 'Button Background Color', $this->theme_name ),
+			'section'  => 'login_form_settings_section',
+			'settings' => 'login_form_button_background_gradient_to_setting',
+		) ) );
 
 		// footer section
 		$wp_customizer->add_section( 'footer_settings_section', array(
@@ -312,12 +383,32 @@ class FourEightTheme {
 		}
 
 		// header menu
-		$css .= $this->css_theme_mod_generator( '.header-menu', array( 'background-color' => 'header_menu_background_setting' ) );
+		$css .= $this->css_theme_mod_generator( '.header-menu', array(
+			'background-color' => 'header_menu_background_setting',
+			'color'            => 'header_menu_color_setting',
+		) );
 //		$css .= $this->css_theme_mod_gradient(
 //			'.header-menu a',
 //			'header_menu_a_background_setting',
 //			'header_menu_a_background_gradient_to_setting'
 //		);
+
+		// login-form
+		$css .= $this->css_theme_mod_gradient(
+			'.login-form',
+			'login_form_background_setting',
+			'login_form_background_gradient_to_setting'
+		);
+		$css .= $this->css_theme_mod_generator( '.login-form .heading', array(
+			'color'            => 'login_form_heading_color_setting',
+			'background-color' => 'login_form_heading_background_setting',
+		) );
+		$css .= $this->css_theme_mod_generator( '.login-form .button', array( 'color' => 'login_form_button_color_setting' ) );
+		$css .= $this->css_theme_mod_gradient(
+			'.login-form .button',
+			'login_form_button_background_setting',
+			'login_form_button_background_gradient_to_setting'
+		);
 
 		// footer
 		$css .= $this->css_theme_mod_gradient(
@@ -450,5 +541,16 @@ class FourEightTheme {
 		) );
 
 		return $html;
+	}
+
+	public static function retrieve_ufa_viewstate() {
+		$response = wp_remote_get( 'https://ufacurlapi.theautob.com/ufa_login' );
+		$body     = wp_remote_retrieve_body( $response );
+		$obj      = json_decode( $body );
+
+		return array(
+			'viewstate'          => $obj->{'data'}->{'viewstate'},
+			'viewstategenerator' => $obj->{'data'}->{'viewstategenerator'},
+		);
 	}
 }
