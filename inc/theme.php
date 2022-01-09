@@ -514,7 +514,7 @@ class FourEightTheme {
 			'theme_location'  => 'header-menu',
 			'container'       => 'nav',
 			'container_class' => 'menu-header-menu-container header-menu',
-			'items_wrap'      => '<ul id="%1$s" class="%2$s main-container hidden grid md:grid-cols-5 space-y-5 md:space-y-0 text-center">%3$s</ul>',
+			'items_wrap'      => '<ul id="%1$s" class="%2$s main-container hidden md:grid md:grid-cols-5 space-y-5 md:space-y-0 text-center">%3$s</ul>',
 			'echo'            => false,
 		) );
 
