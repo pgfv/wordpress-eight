@@ -513,8 +513,8 @@ class FourEightTheme {
 		$html = wp_nav_menu( array(
 			'theme_location'  => 'header-menu',
 			'container'       => 'nav',
-			'container_class' => 'menu-header-menu-container header-menu',
-			'items_wrap'      => '<ul id="%1$s" class="%2$s main-container hidden md:grid md:grid-cols-5 space-y-5 md:space-y-0 text-center">%3$s</ul>',
+			'container_class' => 'menu-header-menu-container header-menu hidden md:flex',
+			'items_wrap'      => '<ul id="%1$s" class="%2$s main-container grid md:grid-cols-5 space-y-5 md:space-y-0 text-center">%3$s</ul>',
 			'echo'            => false,
 		) );
 
