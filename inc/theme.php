@@ -319,12 +319,12 @@ class FourEightTheme {
 		) );
 
 		// footer paragraph color
-		$wp_customizer->add_setting( 'footer_paragraph_color_setting' );
-		$wp_customizer->add_control( new WP_Customize_Color_Control( $wp_customizer, 'footer_paragraph_color_control', array(
-			'label'    => __( 'Paragraph Color', $this->theme_name ),
-			'section'  => 'footer_settings_section',
-			'settings' => 'footer_paragraph_color_setting',
-		) ) );
+//		$wp_customizer->add_setting( 'footer_paragraph_color_setting' );
+//		$wp_customizer->add_control( new WP_Customize_Color_Control( $wp_customizer, 'footer_paragraph_color_control', array(
+//			'label'    => __( 'Paragraph Color', $this->theme_name ),
+//			'section'  => 'footer_settings_section',
+//			'settings' => 'footer_paragraph_color_setting',
+//		) ) );
 
 		// footer background color
 		$wp_customizer->add_setting( 'footer_background_setting' );
@@ -388,6 +388,12 @@ class FourEightTheme {
 				'color'        => "h{$i}_color_setting",
 				'font-size|0!' => "h{$i}_size_setting",
 			) );
+
+			// footer
+			$css .= $this->css_theme_mod_generator( "footer h{$i}", array(
+				'color'        => "h{$i}_color_setting",
+				'font-size|0!' => "h{$i}_size_setting",
+			) );
 		}
 
 		// header menu
@@ -424,7 +430,7 @@ class FourEightTheme {
 			'footer_background_setting',
 			'footer_background_gradient_to_setting'
 		);
-		$css .= $this->css_theme_mod_generator( 'footer p', array( 'color' => 'footer_paragraph_color_setting' ) );
+		$css .= $this->css_theme_mod_generator( 'footer p', array( 'color' => 'paragraph_color_setting' ) );
 		$css .= $this->css_theme_mod_gradient(
 			'.mobile-footer-menu',
 			'footer_mobile_menu_background_setting',
