@@ -31,11 +31,11 @@
 
     <script type="text/javascript">
         function toggleMenu() {
-            let menu = document.getElementById("menu-header-menu");
-            if (menu.style.display === "grid") {
+            let menu = document.getElementById("menu-header-main");
+            if (menu.style.display === "flex") {
                 menu.style.display = "none";
             } else {
-                menu.style.display = "grid";
+                menu.style.display = "flex";
             }
         }
     </script>

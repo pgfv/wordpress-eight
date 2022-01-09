@@ -512,6 +512,7 @@ class FourEightTheme {
 	public static function header_menu() {
 		$html = wp_nav_menu( array(
 			'theme_location'  => 'header-menu',
+			'container_id'    => 'menu-header-main',
 			'container'       => 'nav',
 			'container_class' => 'menu-header-menu-container header-menu hidden md:flex',
 			'items_wrap'      => '<ul id="%1$s" class="%2$s main-container grid md:grid-cols-5 space-y-5 md:space-y-0 text-center">%3$s</ul>',
