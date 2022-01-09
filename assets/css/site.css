@@ -11,7 +11,7 @@
 }
 
 .header-menu {
-    @apply py-5;
+    @apply py-2;
 }
 
 .theme-list {

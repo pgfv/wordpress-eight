@@ -28,6 +28,17 @@
             gtag('config', '<?php echo $id; ?>');
         </script>
 	<?php endif; ?>
+
+    <script type="text/javascript">
+        function toggleMenu() {
+            let menu = document.getElementById("menu-header-menu");
+            if (menu.style.display === "grid") {
+                menu.style.display = "none";
+            } else {
+                menu.style.display = "grid";
+            }
+        }
+    </script>
 </head>
 <body <?php body_class(); ?>>
 
@@ -38,7 +49,9 @@
 
         <section class="main-container flex flex-col md:flex-row justify-between my-10">
             <div class="flex justify-between">
-                <div class="md:hidden">button</div>
+                <div class="md:hidden">
+                    <button onclick="toggleMenu();">button icon</button>
+                </div>
                 <div class="w-1/2">
 					<?php the_custom_logo(); ?>
                 </div>

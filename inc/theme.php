@@ -307,7 +307,7 @@ class FourEightTheme {
 		// login form button background gradient to
 		$wp_customizer->add_setting( 'login_form_button_background_gradient_to_setting' );
 		$wp_customizer->add_control( new WP_Customize_Color_Control( $wp_customizer, 'login_form_button_background_gradient_to_control', array(
-			'label'    => __( 'Button Background Color', $this->theme_name ),
+			'label'    => __( 'Button Background Gradient To', $this->theme_name ),
 			'section'  => 'login_form_settings_section',
 			'settings' => 'login_form_button_background_gradient_to_setting',
 		) ) );
@@ -317,6 +317,14 @@ class FourEightTheme {
 			'title' => __( 'Footer Settings', $this->theme_name ),
 			'panel' => 'theme_settings_panel',
 		) );
+
+		// footer paragraph color
+		$wp_customizer->add_setting( 'footer_paragraph_color_setting' );
+		$wp_customizer->add_control( new WP_Customize_Color_Control( $wp_customizer, 'footer_paragraph_color_control', array(
+			'label'    => __( 'Paragraph Color', $this->theme_name ),
+			'section'  => 'footer_settings_section',
+			'settings' => 'footer_paragraph_color_setting',
+		) ) );
 
 		// footer background color
 		$wp_customizer->add_setting( 'footer_background_setting' );
@@ -345,7 +353,7 @@ class FourEightTheme {
 		// footer mobile menu background gradient to
 		$wp_customizer->add_setting( 'footer_mobile_menu_background_gradient_to_setting' );
 		$wp_customizer->add_control( new WP_Customize_Color_Control( $wp_customizer, 'footer_mobile_menu_background_gradient_to_control', array(
-			'label'    => __( 'Mobile Menu Background Color', $this->theme_name ),
+			'label'    => __( 'Mobile Menu Background Gradient To', $this->theme_name ),
 			'section'  => 'footer_settings_section',
 			'settings' => 'footer_mobile_menu_background_gradient_to_setting',
 		) ) );
@@ -416,7 +424,7 @@ class FourEightTheme {
 			'footer_background_setting',
 			'footer_background_gradient_to_setting'
 		);
-
+		$css .= $this->css_theme_mod_generator( 'footer p', array( 'color' => 'footer_paragraph_color_setting' ) );
 		$css .= $this->css_theme_mod_gradient(
 			'.mobile-footer-menu',
 			'footer_mobile_menu_background_setting',
@@ -500,7 +508,7 @@ class FourEightTheme {
 			'theme_location'  => 'header-menu',
 			'container'       => 'nav',
 			'container_class' => 'menu-header-menu-container header-menu',
-			'items_wrap'      => '<ul id="%1$s" class="%2$s main-container flex flex-row justify-around">%3$s</ul>',
+			'items_wrap'      => '<ul id="%1$s" class="%2$s main-container hidden grid md:grid-cols-5 space-y-5 md:space-y-0 text-center">%3$s</ul>',
 			'echo'            => false,
 		) );
 
