@@ -430,7 +430,7 @@ class FourEightTheme {
 			'footer_background_setting',
 			'footer_background_gradient_to_setting'
 		);
-		$css .= $this->css_theme_mod_generator( 'footer p', array( 'color' => 'paragraph_color_setting' ) );
+		$css .= $this->css_theme_mod_generator( 'footer p,footer span', array( 'color' => 'paragraph_color_setting' ) );
 		$css .= $this->css_theme_mod_gradient(
 			'.mobile-footer-menu',
 			'footer_mobile_menu_background_setting',
@@ -527,7 +527,7 @@ class FourEightTheme {
 			'theme_location'  => 'mobile-top-menu',
 			'container'       => 'div',
 			'container_class' => 'menu-header-menu-container mobile-top-menu md:hidden py-3',
-			'items_wrap'      => '<ul id="%1$s" class="%2$s grid grid-cols-2 text-center">%3$s</ul>',
+			'items_wrap'      => '<ul id="%1$s" class="%2$s grid grid-cols-2 gap-1 text-center">%3$s</ul>',
 			'echo'            => false,
 		) );
 
@@ -550,8 +550,8 @@ class FourEightTheme {
 		$html = wp_nav_menu( array(
 			'theme_location'  => 'mobile-footer-menu',
 			'container'       => 'nav',
-			'container_class' => 'menu-mobile-footer-menu-container mobile-footer-menu md:hidden py-5 fixed bottom-0 w-full',
-			'items_wrap'      => '<ul id="%1$s" class="%2$s grid grid-cols-4 text-center">%3$s</ul>',
+			'container_class' => 'menu-mobile-footer-menu-container mobile-footer-menu md:hidden py-3 fixed bottom-0 w-full',
+			'items_wrap'      => '<ul id="%1$s" class="%2$s grid grid-cols-4 gap-1 text-center">%3$s</ul>',
 			'echo'            => false,
 		) );
 
