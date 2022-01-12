@@ -49,5 +49,5 @@
 }
 
 .hamburger-icon {
-    @apply w-6 h-6 text-white;
+    @apply w-12 h-12 text-white;
 }
