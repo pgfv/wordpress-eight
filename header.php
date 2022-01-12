@@ -49,7 +49,7 @@
 
         <section class="main-container flex flex-col md:flex-row justify-between my-10">
             <div class="flex justify-between">
-                <div class="md:hidden flex self-baseline">
+                <div class="md:hidden flex self-end">
                     <label id="show-button" onclick="toggleMenu();" class="text-white">
                         <svg class="fill-current h-6 w-6" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                             <title>Menu Open</title>
