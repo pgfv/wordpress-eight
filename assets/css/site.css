@@ -47,7 +47,3 @@
 .login-form .button {
     @apply w-full mt-2 py-2 rounded-md cursor-pointer;
 }
-
-.hamburger-icon {
-    @apply w-12 h-12 text-white;
-}

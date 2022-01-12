@@ -50,8 +50,8 @@
         <section class="main-container flex flex-col md:flex-row justify-between my-10">
             <div class="flex justify-between">
                 <div class="md:hidden flex self-baseline">
-                    <label id="show-button" onclick="toggleMenu();" class="hamburger-icon">
-                        <svg class="fill-current h-4 w-4" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                    <label id="show-button" onclick="toggleMenu();" class="text-white">
+                        <svg class="fill-current h-6 w-6" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                             <title>Menu Open</title>
                             <path d="M0 3h20v2H0V3z m0 6h20v2H0V9z m0 6h20v2H0V0z"/>
                         </svg>
