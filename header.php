@@ -49,8 +49,8 @@
 
         <section class="main-container flex flex-col md:flex-row justify-between my-10">
             <div class="flex justify-between">
-                <div class="sm:hidden">
-                    <label id="show-button" onclick="toggleMenu();">
+                <div class="md:hidden">
+                    <label id="show-button" onclick="toggleMenu();" class="hamburger-icon">
                         <svg class="fill-current h-4 w-4" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                             <title>Menu Open</title>
                             <path d="M0 3h20v2H0V3z m0 6h20v2H0V9z m0 6h20v2H0V0z"/>
