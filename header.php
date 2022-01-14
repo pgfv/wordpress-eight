@@ -32,10 +32,16 @@
     <script type="text/javascript">
         function toggleMenu() {
             let menu = document.getElementById("menu-header-main");
+            let show = document.getElementById("show-button");
+            let hide = document.getElementById("hide-button");
             if (menu.style.display === "flex") {
                 menu.style.display = "none";
+                show.style.display = "flex";
+                hide.style.display = "none";
             } else {
                 menu.style.display = "flex";
+                show.style.display = "none";
+                hide.style.display = "flex";
             }
         }
     </script>
@@ -47,15 +53,22 @@
     <header>
 		<?php echo FourEightTheme::header_mobile_menu(); ?>
 
-        <section class="main-container flex flex-col md:flex-row justify-between my-10">
+        <section class="main-container flex flex-col md:flex-row justify-between my-5">
             <div class="flex justify-between">
-                <div class="md:hidden flex self-end">
+                <div class="md:hidden flex self-center">
                     <label id="show-button" onclick="toggleMenu();" class="text-white">
                         <svg class="fill-current h-6 w-6" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                             <title>Menu Open</title>
                             <path d="M0 3h20v2H0V3z m0 6h20v2H0V9z m0 6h20v2H0V0z"/>
                         </svg>
-                    </label>                    
+                    </label>
+                    <label id="hide-button" onclick="toggleMenu()" class="text-white hidden">
+                        <svg class="fill-current h-6 w-6" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                            <title>Menu Close</title>
+                            <polygon points="11 9 22 9 22 11 11 11 11 22 9 22 9 11 -2 11 -2 9 9 9 9 -2 11 -2"
+                                    transform="rotate(45 10 10)" />
+                        </svg>
+                    </label>      
                 </div>
                 <div class="w-1/2">
 					<?php the_custom_logo(); ?>
