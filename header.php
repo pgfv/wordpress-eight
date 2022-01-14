@@ -70,7 +70,7 @@
                         </svg>
                     </label>      
                 </div>
-                <div class="w-1/2">
+                <div class="w-1/3 md:w-1/2">
 					<?php the_custom_logo(); ?>
                 </div>
             </div>
