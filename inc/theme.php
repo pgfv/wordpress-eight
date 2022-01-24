@@ -14,6 +14,8 @@ class FourEightTheme {
 		add_action( 'wp_head', [ $this, 'custom_css_output' ] );
 		add_action( 'customize_register', [ $this, 'theme_customizer' ] );
 		add_action( 'customize_register', [ $this, 'google_analytics_customizer' ] );
+
+		add_filter( 'image_size_names_choose', [ $this, 'image_sizes_name' ] );
 	}
 
 	function __construct() {
@@ -45,6 +47,12 @@ class FourEightTheme {
 		}
 
 		add_image_size( 'footer-menu', 40 );
+	}
+
+	function image_sizes_name( $sizes ) {
+		$sizes['footer-menu'] = __( 'Footer Menu', $this->theme_name );
+	
+		return $sizes;
 	}
 
 	function register_custom_style() {
