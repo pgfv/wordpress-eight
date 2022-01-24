@@ -47,3 +47,7 @@
 .login-form .button {
     @apply w-full mt-2 py-2 rounded-md cursor-pointer;
 }
+
+#menu-mobile-footer-menu img {
+    @apply block mx-auto;
+}
