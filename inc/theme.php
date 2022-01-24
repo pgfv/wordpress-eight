@@ -43,6 +43,8 @@ class FourEightTheme {
 			add_theme_support( 'post-thumbnails' );
 			add_theme_support( 'custom-logo' );
 		}
+
+		add_image_size( 'footer-menu', 40 );
 	}
 
 	function register_custom_style() {
