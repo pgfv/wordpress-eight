@@ -451,9 +451,9 @@ class FourEightTheme {
 			'footer_background_setting',
 			'footer_background_gradient_to_setting'
 		);
-		$css .= $this->css_theme_mod_generator( 'footer p,footer span', array( 'color' => 'paragraph_color_setting' ) );
-		$css .= $this->css_theme_mod_generator( 'footer a', array( 'color' => 'footer_anchor_color_setting' ) );
-		$css .= $this->css_theme_mod_generator( '.mobile-footer-menu', array( 'color!' => 'footer_mobile_menu_anchor_color_setting' ) );
+		$css .= $this->css_theme_mod_generator( 'footer p', array( 'color' => 'paragraph_color_setting' ) );
+		$css .= $this->css_theme_mod_generator( 'footer a', array( 'color!' => 'footer_anchor_color_setting' ) );
+		$css .= $this->css_theme_mod_generator( '.mobile-footer-menu span', array( 'color!' => 'footer_mobile_menu_anchor_color_setting' ) );
 		$css .= $this->css_theme_mod_gradient(
 			'.mobile-footer-menu',
 			'footer_mobile_menu_background_setting',
