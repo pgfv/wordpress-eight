@@ -367,6 +367,22 @@ class FourEightTheme {
 			'section'  => 'footer_settings_section',
 			'settings' => 'footer_mobile_menu_background_gradient_to_setting',
 		) ) );
+
+		// footer anchor color
+		$wp_customizer->add_setting( 'footer_anchor_color_setting' );
+		$wp_customizer->add_control( new WP_Customize_Color_Control( $wp_customizer, 'footer_anchor_color_control', array(
+			'label'    => __( 'Anchor Color', $this->theme_name ),
+			'section'  => 'footer_settings_section',
+			'settings' => 'footer_anchor_color_setting',
+		) ) );
+
+		// footer mobile menu anchor color
+		$wp_customizer->add_setting( 'footer_mobile_menu_anchor_color_setting' );
+		$wp_customizer->add_control( new WP_Customize_Color_Control( $wp_customizer, 'footer_mobile_menu_anchor_color_control', array(
+			'label'    => __( 'Mobile Menu Anchor Color', $this->theme_name ),
+			'section'  => 'footer_settings_section',
+			'settings' => 'footer_mobile_menu_anchor_color_setting',
+		) ) );
 	}
 
 	function custom_css_output() {
@@ -411,11 +427,6 @@ class FourEightTheme {
 			'background-color' => 'header_menu_background_setting',
 			'color'            => 'header_menu_color_setting',
 		) );
-//		$css .= $this->css_theme_mod_gradient(
-//			'.header-menu a',
-//			'header_menu_a_background_setting',
-//			'header_menu_a_background_gradient_to_setting'
-//		);
 
 		// login-form
 		$css .= $this->css_theme_mod_gradient(
@@ -441,6 +452,8 @@ class FourEightTheme {
 			'footer_background_gradient_to_setting'
 		);
 		$css .= $this->css_theme_mod_generator( 'footer p,footer span', array( 'color' => 'paragraph_color_setting' ) );
+		$css .= $this->css_theme_mod_generator( 'footer a', array( 'color' => 'footer_anchor_color_setting' ) );
+		$css .= $this->css_theme_mod_generator( '.mobile-footer-menu', array( 'color!' => 'footer_mobile_menu_anchor_color_setting' ) );
 		$css .= $this->css_theme_mod_gradient(
 			'.mobile-footer-menu',
 			'footer_mobile_menu_background_setting',
