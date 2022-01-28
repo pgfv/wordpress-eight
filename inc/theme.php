@@ -470,7 +470,7 @@ class FourEightTheme {
 		);
 		$css .= $this->css_theme_mod_generator( 'footer p', array( 'color' => 'paragraph_color_setting' ) );
 		$css .= $this->css_theme_mod_generator( 'footer a', array( 'color!' => 'footer_anchor_color_setting' ) );
-		$css .= $this->css_theme_mod_generator( 'footer li', array( 'color' => 'footer_list_color_setting' ) );
+		$css .= $this->css_theme_mod_generator( 'footer li::marker', array( 'color' => 'footer_list_color_setting' ) );
 		$css .= $this->css_theme_mod_generator( '.mobile-footer-menu span', array( 'color!' => 'footer_mobile_menu_anchor_color_setting' ) );
 		$css .= $this->css_theme_mod_gradient(
 			'.mobile-footer-menu',
