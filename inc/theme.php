@@ -202,6 +202,14 @@ class FourEightTheme {
 			'settings' => 'strong_color_setting',
 		) ) );
 
+		// anchor color
+		$wp_customizer->add_setting( 'anchor_color_setting' );
+		$wp_customizer->add_control( new WP_Customize_Color_Control( $wp_customizer, 'anchor_color_control', array(
+			'label'    => __( 'Anchor Color', $this->theme_name ),
+			'section'  => 'font_settings_section',
+			'settings' => 'anchor_color_setting',
+		) ) );
+
 		// heading color
 		for ( $i = 1; $i <= 6; $i++ ) {
 			$wp_customizer->add_setting( "h{$i}_size_setting" );
@@ -376,6 +384,14 @@ class FourEightTheme {
 			'settings' => 'footer_anchor_color_setting',
 		) ) );
 
+		// footer bullet color
+		$wp_customizer->add_setting( 'footer_list_color_setting' );
+		$wp_customizer->add_control( new WP_Customize_Color_Control( $wp_customizer, 'footer_list_color_control', array(
+			'label'    => __( 'Bullet list Color', $this->theme_name ),
+			'section'  => 'footer_settings_section',
+			'settings' => 'footer_list_color_setting',
+		) ) );
+
 		// footer mobile menu anchor color
 		$wp_customizer->add_setting( 'footer_mobile_menu_anchor_color_setting' );
 		$wp_customizer->add_control( new WP_Customize_Color_Control( $wp_customizer, 'footer_mobile_menu_anchor_color_control', array(
@@ -408,6 +424,7 @@ class FourEightTheme {
 			'line-height|1' => 'paragraph_size_setting',
 		) );
 		$css .= $this->css_theme_mod_generator( '.main-content strong', array( 'color' => 'strong_color_setting' ) );
+		$css .= $this->css_theme_mod_generator( '.main-content a', array( 'color' => 'anchor_color_setting' ) );
 
 		for ( $i = 1; $i <= 6; $i++ ) {
 			$css .= $this->css_theme_mod_generator( ".main-content h{$i}", array(
@@ -453,6 +470,7 @@ class FourEightTheme {
 		);
 		$css .= $this->css_theme_mod_generator( 'footer p', array( 'color' => 'paragraph_color_setting' ) );
 		$css .= $this->css_theme_mod_generator( 'footer a', array( 'color!' => 'footer_anchor_color_setting' ) );
+		$css .= $this->css_theme_mod_generator( 'footer li', array( 'color' => 'footer_list_color_setting' ) );
 		$css .= $this->css_theme_mod_generator( '.mobile-footer-menu span', array( 'color!' => 'footer_mobile_menu_anchor_color_setting' ) );
 		$css .= $this->css_theme_mod_gradient(
 			'.mobile-footer-menu',
