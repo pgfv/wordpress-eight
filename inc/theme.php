@@ -412,7 +412,7 @@ class FourEightTheme {
 
 		// sticky widget
 		$wp_customizer->add_panel( 'sticky_widget_panel', array(
-			'title'       => __( 'Sticky Widget Settings Panel', $this->theme_name ),
+			'title'       => __( 'Sticky Widget Settings', $this->theme_name ),
 			'description' => __( 'Sticky widget customizer', $this->theme_name ),
 			'priority'    => 105,
 		) );
