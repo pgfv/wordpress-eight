@@ -92,37 +92,6 @@ class FourEightTheme {
         }
 	}
 
-	function sticky_widget_style( $horizontal, $vertical, $hide_mobile = false, $hide_pc = false ) {
-		$rtn = '';
-		switch ( $horizontal ) {
-			case 'right':
-				$rtn .= 'right-5 ';
-				break;
-			case 'left':
-				$rtn .= 'left-5 ';
-				break;
-		}
-	
-		switch ( $vertical ) {
-			case 'top':
-				$rtn .= 'top-5 ';
-				break;
-			case 'bottom':
-				$rtn .= 'bottom-5 ';
-				break;
-		}
-	
-		$rtn .= 'flex md:flex ';
-		if ( $hide_mobile ) {
-			$rtn .= 'hidden ';
-		}
-		if ( $hide_pc ) {
-			$rtn .= 'md:hidden ';
-		}
-	
-		return $rtn;
-	}
-
 	function register_navigation_menus() {
 		register_nav_menus( array(
 			'header-menu'        => __( 'Header Menu', $this->theme_name ),
@@ -724,5 +693,36 @@ class FourEightTheme {
 			'viewstate'          => $obj->{'data'}->{'viewstate'},
 			'viewstategenerator' => $obj->{'data'}->{'viewstategenerator'},
 		);
+	}
+
+	public static function sticky_widget_style( $horizontal, $vertical, $hide_mobile = false, $hide_pc = false ) {
+		$rtn = '';
+		switch ( $horizontal ) {
+			case 'right':
+				$rtn .= 'right-5 ';
+				break;
+			case 'left':
+				$rtn .= 'left-5 ';
+				break;
+		}
+	
+		switch ( $vertical ) {
+			case 'top':
+				$rtn .= 'top-5 ';
+				break;
+			case 'bottom':
+				$rtn .= 'bottom-5 ';
+				break;
+		}
+	
+		$rtn .= 'flex md:flex ';
+		if ( $hide_mobile ) {
+			$rtn .= 'hidden ';
+		}
+		if ( $hide_pc ) {
+			$rtn .= 'md:hidden ';
+		}
+	
+		return $rtn;
 	}
 }
