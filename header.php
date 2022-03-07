@@ -57,7 +57,7 @@
 			$hide_pc = get_theme_mod( "sticky_widget_{$i}_hide_pc_setting", false );
 			?>
             <div id="sticky-widget-<?php echo $i; ?>"
-                 class="fixed z-10 flex-col <?php echo sticky_widget_style( $hw, $vw, $hide_mobile, $hide_pc ); ?>">
+                 class="fixed z-10 flex-col ">
                 <button class="text-sm text-right text-red-700"
                         onclick="document.getElementById('sticky-widget-<?php echo $i; ?>').style.display = 'none';">
                     close
