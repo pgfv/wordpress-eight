@@ -51,7 +51,7 @@ class FourEightTheme {
 
 	function image_sizes_name( $sizes ) {
 		$sizes['footer-menu'] = __( 'Footer Menu', $this->theme_name );
-	
+
 		return $sizes;
 	}
 
@@ -80,6 +80,47 @@ class FourEightTheme {
 				'after_widget'  => '',
 			) );
 		}
+
+        // sticky
+        for ( $i = 1; $i <= 4; $i++ ) {
+            register_sidebar( array(
+                'id' => "sticky_widget_{$i}",
+                'name' => __( "Sticky Widget {$i}", $this->theme_name ),
+                'before_widget' => '<section id="%1$s" class="sticky-widget">',
+                'after_widget' => '</section>',
+            ) );
+        }
+	}
+
+	function sticky_widget_style( $horizontal, $vertical, $hide_mobile = false, $hide_pc = false ) {
+		$rtn = '';
+		switch ( $horizontal ) {
+			case 'right':
+				$rtn .= 'right-5 ';
+				break;
+			case 'left':
+				$rtn .= 'left-5 ';
+				break;
+		}
+	
+		switch ( $vertical ) {
+			case 'top':
+				$rtn .= 'top-5 ';
+				break;
+			case 'bottom':
+				$rtn .= 'bottom-5 ';
+				break;
+		}
+	
+		$rtn .= 'flex md:flex ';
+		if ( $hide_mobile ) {
+			$rtn .= 'hidden ';
+		}
+		if ( $hide_pc ) {
+			$rtn .= 'md:hidden ';
+		}
+	
+		return $rtn;
 	}
 
 	function register_navigation_menus() {
@@ -399,6 +440,81 @@ class FourEightTheme {
 			'section'  => 'footer_settings_section',
 			'settings' => 'footer_mobile_menu_anchor_color_setting',
 		) ) );
+
+		// sticky widget
+		$wp_customizer->add_panel( 'sticky_widget_panel', array(
+			'title'       => __( 'Sticky Widget Settings Panel', $this->theme_name ),
+			'description' => __( 'Sticky widget customizer', $this->theme_name ),
+			'priority'    => 105,
+		) );
+	
+		for ( $i = 1; $i <= 4; $i ++ ) {
+			$wp_customizer->add_section( "sticky_widget_{$i}_section", array(
+				'title'       => __( "Sticky Widget {$i}", $this->theme_name ),
+				'description' => __( 'Sticky widget customizer', $this->theme_name ),
+				'panel'       => 'sticky_widget_panel',
+			) );
+				
+			// sticky widget position horizontal
+			$wp_customizer->add_setting( "sticky_widget_{$i}_position_horizontal_setting", array(
+				'default' => 'right',
+			) );
+	
+			$wp_customizer->add_control( new WP_Customize_Control( $wp_customizer,
+				"sticky_widget_{$i}_position_horizontal_control", array(
+					'label'    => 'Horizontal Alignment',
+					'section'  => "sticky_widget_{$i}_section",
+					'settings' => "sticky_widget_{$i}_position_horizontal_setting",
+					'type'     => 'radio',
+					'choices'  => array(
+						'right' => 'Right',
+						'left'  => 'Left',
+					),
+				) ) );
+	
+			// sticky widget position vertical
+			$wp_customizer->add_setting( "sticky_widget_{$i}_position_vertical_setting", array(
+				'default' => 'top',
+			) );
+	
+			$wp_customizer->add_control( new WP_Customize_Control( $wp_customizer,
+				"sticky_widget_{$i}_position_vertical_control", array(
+					'label'    => 'Vertical Alignment',
+					'section'  => "sticky_widget_{$i}_section",
+					'settings' => "sticky_widget_{$i}_position_vertical_setting",
+					'type'     => 'radio',
+					'choices'  => array(
+						'top'    => 'Top',
+						'bottom' => 'Bottom',
+					),
+				) ) );
+	
+			// hide on pc
+			$wp_customizer->add_setting( "sticky_widget_{$i}_hide_pc_setting", array(
+				'default' => false,
+			) );
+	
+			$wp_customizer->add_control( new WP_Customize_Control( $wp_customizer, "sticky_widget_{$i}_hide_pc_control",
+				array(
+					'label'    => 'Hide On PC',
+					'section'  => "sticky_widget_{$i}_section",
+					'settings' => "sticky_widget_{$i}_hide_pc_setting",
+					'type'     => 'checkbox',
+				) ) );
+	
+			// hide on mobile
+			$wp_customizer->add_setting( "sticky_widget_{$i}_hide_mobile_setting", array(
+				'default' => false,
+			) );
+	
+			$wp_customizer->add_control( new WP_Customize_Control( $wp_customizer, "sticky_widget_{$i}_hide_mobile_control",
+				array(
+					'label'    => 'Hide On Mobile',
+					'section'  => "sticky_widget_{$i}_section",
+					'settings' => "sticky_widget_{$i}_hide_mobile_setting",
+					'type'     => 'checkbox',
+				) ) );
+		}
 	}
 
 	function custom_css_output() {

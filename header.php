@@ -48,6 +48,26 @@
 </head>
 <body <?php body_class(); ?>>
 
+<section>
+	<?php for ( $i = 1; $i <= 4; $i ++ ) :
+		if ( is_active_sidebar( "sticky_widget_{$i}" ) ):
+			$hw = get_theme_mod( "sticky_widget_{$i}_position_horizontal_setting", 'right' );
+			$vw = get_theme_mod( "sticky_widget_{$i}_position_vertical_setting", 'top' );
+			$hide_mobile = get_theme_mod( "sticky_widget_{$i}_hide_mobile_setting", false );
+			$hide_pc = get_theme_mod( "sticky_widget_{$i}_hide_pc_setting", false );
+			?>
+            <div id="sticky-widget-<?php echo $i; ?>"
+                 class="fixed z-10 flex-col <?php echo sticky_widget_style( $hw, $vw, $hide_mobile, $hide_pc ); ?>">
+                <button class="text-sm text-right text-red-700"
+                        onclick="document.getElementById('sticky-widget-<?php echo $i; ?>').style.display = 'none';">
+                    close
+                </button>
+				<?php dynamic_sidebar( "sticky_widget_{$i}" ); ?>
+            </div>
+		<?php endif; ?>
+	<?php endfor; ?>
+</section>
+
 <!-- wrapper -->
 <section class="flex flex-col min-h-screen">
     <header>
