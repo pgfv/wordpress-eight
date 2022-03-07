@@ -411,18 +411,19 @@ class FourEightTheme {
 		) ) );
 
 		// sticky widget
-		$wp_customizer->add_section( 'sticky_widget_settings_section', array(
-			'title' => __( 'Sticky Widget Settings', $this->theme_name ),
-			'panel' => 'theme_settings_panel',
+		$wp_customizer->add_panel( 'sticky_widget_panel', array(
+			'title'       => __( 'Sticky Widget Settings Panel', $this->theme_name ),
+			'description' => __( 'Sticky widget customizer', $this->theme_name ),
+			'priority'    => 105,
 		) );
 	
 		for ( $i = 1; $i <= 4; $i ++ ) {
 			$wp_customizer->add_section( "sticky_widget_{$i}_section", array(
 				'title'       => __( "Sticky Widget {$i}", $this->theme_name ),
 				'description' => __( 'Sticky widget customizer', $this->theme_name ),
-				'panel'       => 'sticky_widget_settings_section',
+				'panel'       => 'sticky_widget_panel',
 			) );
-				
+	
 			// sticky widget position horizontal
 			$wp_customizer->add_setting( "sticky_widget_{$i}_position_horizontal_setting", array(
 				'default' => 'right',
