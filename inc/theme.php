@@ -414,7 +414,7 @@ class FourEightTheme {
 		$wp_customizer->add_panel( 'sticky_widget_panel', array(
 			'title'       => __( 'Sticky Widget Settings', $this->theme_name ),
 			'description' => __( 'Sticky widget customizer', $this->theme_name ),
-			'priority'    => 105,
+			'priority'    => 99,
 		) );
 	
 		for ( $i = 1; $i <= 4; $i ++ ) {

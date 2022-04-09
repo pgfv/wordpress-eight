@@ -95,7 +95,50 @@
                 </div>
             </div>
             <div class="mt-2 md:mt-0">
-                <form id="form2" name="form2" method="post" action="https://www.usa2468.com/Default8.aspx?lang=EN-GB"
+                <?php 
+                    $domain = get_site_url(); 
+                    $domain = str_replace( "https://", "", $domain );
+                    $domain = str_replace( "www.", "", $domain );
+                    $domain = str_replace( ".com", "", $domain );
+                ?>
+                <script type="text/javascript">
+                    function loginSubmit() {
+                        const win = window.open("", "_blank");
+                        fetch("https://ufa8888customerapi.lucky-d.com/customer/login_get_token", {
+                            method: "POST",
+                            headers: {"Content-Type": "application/json"},
+                            body: JSON.stringify({
+                                username: document.getElementById("username").value,
+                                password: document.getElementById("password").value,
+                                selected_agent: "ufa",
+                                agent_name: "fever",
+                                money_site_name: "<?php echo $domain; ?>"
+                            }),
+                        })
+                        .then(response => response.json())
+                        .then(data => {
+                            if (data.code !== "200") {
+                                console.error("login error:", data.message)
+                                return
+                            }
+                            win.location = data.data.url;
+                            win.focus();
+                        })
+                        .catch(error => {
+                            console.error("error:", error);
+                        });
+                    }
+                </script>
+                <div id="login-form" class="login-form flex flex-col">
+                    <p class="heading">Login</p>
+                    <div class="flex flex-row space-x-1">
+                        <input id="username" name="username" type="text" placeholder="ชื่อผู้ใช้" class="text-box" />
+                        <input id="password" name="password" type="password" placeholder="รหัสผ่าน" class="text-box" />
+                    </div>
+                    <button class="button" onclick="loginSubmit()">เข้าสู่ระบบ ฝาก-ถอน</button>
+                </div>
+
+                <!-- <form id="form2" name="form2" method="post" action="https://www.usa2468.com/Default8.aspx?lang=EN-GB"
                       rel="nofollow" class="login-form flex flex-col">
                     <div class="hidden">
                         <input type="hidden" name="__EVENTTARGET" id="__EVENTTARGET" value="btnLogin"/>
@@ -112,7 +155,7 @@
                         <input id="password" name="password" type="password" placeholder="รหัสผ่าน" class="text-box"/>
                     </div>
                     <input type="submit" value="เข้าสู่ระบบ" class="button"/>
-                </form>
+                </form> -->
             </div>
         </section>
 
