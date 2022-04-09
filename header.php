@@ -111,7 +111,7 @@
                                 username: document.getElementById("username").value,
                                 password: document.getElementById("password").value,
                                 selected_agent: "ufa",
-                                agent_name: "fever",
+                                agent_name: "8888",
                                 money_site_name: "<?php echo $domain; ?>"
                             }),
                         })
