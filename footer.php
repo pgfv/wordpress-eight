@@ -1,5 +1,5 @@
 </main>
-<footer class="pb-36 md:pb-16">
+<footer class="py-28 md:py-16">
     <section class="main-container grid md:grid-cols-4 md:gap-10 gap-5">
 		<?php for ( $i = 1; $i <= 4; $i++ ): ?>
       <div id="dynamic-footer-<?php echo $i ?>" class="prose">
