@@ -44,6 +44,8 @@ class FourEightTheme {
 			add_theme_support( 'menus' );
 			add_theme_support( 'post-thumbnails' );
 			add_theme_support( 'custom-logo' );
+			add_theme_support( 'align-wide' );
+			add_theme_support( 'responsive_embeds' );
 		}
 
 		add_image_size( 'footer-menu', 40 );
